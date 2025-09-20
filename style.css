@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container1 {
+    max-width: 800px;
+    margin: 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    & > div {
+        background-color: #4caf50;
+        width: 350px;
+        margin: 2.5px 5px;
+        height: 500px;
+        padding-top: 25px;
+        & > div {
+            width: 100px;
+            height: 50px;
+            margin: 0px auto;
+            border: 25px solid;
+            animation-name: spinner;
+            animation-duration: 2.5s;
+            animation-iteration-count: infinite;
+        }
+    }
+    & .parent1 {
+        background-color: #222;
+        perspective: 1000px;
+        & :first-child,
+        & :nth-of-type(2),
+        & :nth-of-type(3),
+        & :nth-of-type(4) {
+            border-color: transparent;
+            margin-bottom: -10px;
+        }
+        & :last-child,
+        & :nth-of-type(5),
+        & :nth-of-type(6),
+        & :nth-of-type(7) {
+            border-color:  transparent;
+            margin-top: -10px;
+        }
+        & :first-child {
+            border-top-color: #00bcd4;
+            margin-top: 50px;
+            width: 300px;
+        }
+        & :nth-of-type(2) {
+            border-top-color: #f44336;
+            width: 200px;
+            animation-delay: 0.2s;
+        }
+        & :nth-of-type(3) {
+            border-top-color: #4caf50;
+            width: 100px;
+            animation-delay: 0.4s;
+        }
+        & :nth-of-type(4) {
+            border-top-color: #3f51b5;
+            width: 50px;
+            position: relative;
+            animation-delay: 0.6s;
+        }
+        & :nth-of-type(4)::after {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #ffc107;
+            top: 7.5px;
+            right: -12.5px;
+        }
+        & :nth-of-type(5) {
+            border-bottom-color: #3f51b5;
+            width: 50px;
+            animation-delay: 0.6s;
+        }
+        & :nth-of-type(6) {
+            border-bottom-color: #4caf50;
+            width: 100px;
+            animation-delay: 0.8s;
+        }
+        & :nth-of-type(7) {
+            border-bottom-color: #f44336;
+            width: 200px;
+            animation-delay: 1s;
+        }
+        & :last-child {
+            border-bottom-color: #00bcd4;
+            width: 300px;
+            animation-delay: 1.2s;
+        }
+    }
+}
+@keyframes spinner {
+    to {
+        transform: rotateY(180deg);
+    }
+}
