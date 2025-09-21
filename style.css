@@ -43,7 +43,7 @@
             margin-top: -10px;
         }
         & :first-child {
-            border-top-color: #00bcd4;
+            border-top-color: #f44336;
             width: 300px;
         }
         & :nth-of-type(2) {
@@ -57,7 +57,7 @@
             animation-delay: 0.4s;
         }
         & :nth-of-type(4) {
-            border-top-color: #3f51b5;
+            border-top-color: #00bcd4;
             width: 50px;
             position: relative;
             animation-delay: 0.6s;
@@ -67,12 +67,12 @@
             position: absolute;
             width: 15px;
             height: 15px;
-            background-color: #ffc107;
+            background-color: #f44336;
             top: 8.5px;
             right: -1.5px;
         }
         & :nth-of-type(5) {
-            border-bottom-color: #3f51b5;
+            border-bottom-color: #00bcd4;
             width: 50px;
             animation-delay: 0.6s;
         }
@@ -87,7 +87,7 @@
             animation-delay: 1s;
         }
         & :last-child {
-            border-bottom-color: #00bcd4;
+            border-bottom-color: #f44336;
             width: 300px;
             animation-delay: 1.2s;
         }
@@ -133,6 +133,124 @@
             }
         }
     }
+    & .parent3 {
+        & .child-parent {
+            position: relative;
+            & span {
+                background-color: #4caf50;
+                width: 10px;
+                height: 30px;
+                display: inline-block;
+                margin: 0px 2px;
+                animation-duration: 6s;
+                animation-iteration-count: infinite;
+            }
+            & :first-child{
+                height: 15px;
+                animation-name: tall-short1;
+            }
+            & :nth-child(2){
+                height: 30px;
+                /* animation-name: tall-short2; 20 37, 38 52*/
+            }
+            & :last-child{
+                height: 45px;
+                animation-name: tall-short3;
+            }
+        }
+        & .child-parent::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #00bcd4;
+            position: absolute;
+            border-radius: 50%;
+            animation-name: tall-short-ball;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+            left: 2px;
+            bottom: 22px;
+        }
+
+    }
+}
+@keyframes tall-short-ball {
+    5% {
+        left: 2px;
+        bottom: 22px;
+    }
+    9% {
+        left: 21px;
+        bottom: 42px;
+    }
+    14% {
+        left: 20px;
+        bottom: 37px;
+    }
+    18% {
+        left: 39px;
+        bottom: 57px;
+    }
+    19% {
+        left: 38px;
+        bottom: 52px;
+    }
+    45% {
+        left: 38px;
+        bottom: 52px;
+    }
+    50% {
+        left: 38px;
+        bottom: 20px;
+    }
+    55% {
+        left: 19px;
+        bottom: 42px;
+    }
+    59% {
+        left: 20px;
+        bottom: 37px;
+    }
+    64% {
+        left: 1px;
+        bottom: 57px;
+    }
+    68% {
+        left: 2px;
+        bottom: 52px;
+    }
+    95% {
+        left: 2px;
+        bottom: 52px;
+    }
+}
+@keyframes tall-short1{
+    45% {
+        height: 15px;
+    }
+    50% {
+        height: 45px;
+    }
+    95% {
+        height: 45px;
+    }
+    100%{
+        height: 15px;   
+    }
+}
+@keyframes tall-short3{
+    45% {
+        height: 45px;
+    }
+    50% {
+        height: 15px;
+    }
+    95% {
+        height: 15px;
+    }
+    100%{
+        height: 45px;   
+    }
 }
 @keyframes spinner {
     to {
@@ -141,7 +259,7 @@
 }
 @keyframes right-left {
     50% {
-        transform: translateX(200px);
+        transform: translateX(180px);
     }
     100% {
         transform: translateX(-5px);
@@ -162,9 +280,6 @@
     }
     50% {
         transform: translate(-50px, 0px) rotateX(30deg);
-    }
-    60% {
-        transform: translate(-50px, 0px);
     }
     70% {
         transform: translate(-50px, 0px);
@@ -187,12 +302,55 @@
         transform: translate(-50px, 0px);
     }
     40% {
+        transform: translate(-50px, 0px) rotateX(30deg);
+    }
+    50% {
         transform: translate(-50px, 0px);
     }
-    65% {
+    60% {
         transform: translate(-25px, -80px) rotate(-360deg);
     }
+    65% {
+        transform: translate(0px, 0px) rotateX(30deg);
+    }
+}
+@keyframes up-down-child3 {
+    10% {
+        transform: translate(-25px, -80px) rotate(-360deg);
+    }
+    25% {
+        transform: translate(-50px, 0px) rotateX(30deg);
+    }
+    30% {
+        transform: translate(-50px, 0px);
+    }
+    40% {
+        transform: translate(-25px, -80px) rotate(-360deg);
+    }
+    45% {
+        transform: translate(0px, 0px) rotateX(30deg);
+    }
+    50% {
+        transform: translate(0px, 0px);
+    }
+}
+/* @keyframes up-down-child2 {
+    10% {
+        transform: translate(-25px, -80px) rotate(-360deg);
+    }
+    20% {
+        transform: translate(-50px, 0px) rotateX(30deg);
+    }
+    30% {
+        transform: translate(-50px, 0px);
+    }
     70% {
+        transform: translate(-50px, 0px);
+    }
+    85% {
+        transform: translate(-25px, -80px) rotate(-360deg);
+    }
+    90% {
         transform: translate(0px, 0px) rotateX(30deg);
     }
 }
@@ -206,13 +364,33 @@
     30% {
         transform: translate(-50px, 0px);
     }
-    /* 40% {
+    40% {
         transform: translate(-50px, 0px);
-    } */
+    }
+    85% {
+        transform: translate(-25px, -80px) rotate(-360deg);
+    }
+    90% {
+        transform: translate(0px, 0px) rotateX(30deg);
+    }
+} */
+/* @keyframes up-down-child3 {
+    10% {
+        transform: translate(-25px, -80px) rotate(-360deg);
+    }
+    20% {
+        transform: translate(-50px, 0px) rotateX(30deg);
+    }
+    30% {
+        transform: translate(-50px, 0px);
+    }
     45% {
         transform: translate(-25px, -80px) rotate(-360deg);
     }
     70% {
         transform: translate(0px, 0px) rotateX(30deg);
     }
-}
+    75% {
+        transform: translate(0px, 0px) rotateX(30deg);
+    }
+} */
