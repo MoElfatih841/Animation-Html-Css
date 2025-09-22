@@ -1,4 +1,2 @@
 # Html-CssMiniProjects
-mini projects using html and css
-
-## Projects Notes
+mini animation projects using html and css
