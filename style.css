@@ -173,6 +173,118 @@
         }
 
     }
+    & .parent4 {
+        & .child-parent {
+            width: 200px;
+            height: 100px;
+            position: relative;
+            animation-name: flying;
+            animation-duration: 0.25s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            & span {
+                position: absolute;
+                display: inline-block;
+                margin: 1px;
+            }
+            & :nth-child(1) {
+                width: 60px;
+                height: 25px;
+                background-color: #f44336;
+                border-radius: 50px 0px 40px 0px;
+                bottom: 40px;
+                left: 88px;
+            }
+            & :nth-child(2) {
+                border: 60px solid;
+                width: 0px;
+                border-top-width: 11px;
+                border-color: #f44336 transparent transparent;
+                bottom: -20px;
+                right: 50px;
+                /* transform: translate(50%, 50%); */
+            }
+            & :nth-child(3) {
+                border: 45px solid;
+                width: 0px;
+                border-top-width: 15px;
+                border-color: #f44336 transparent transparent;
+                bottom: 5px;
+                right: 50px;
+                /* transform: translate(50%, 50%); */
+            }
+            & :nth-child(1)::before {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #f44336;
+                top: -10px;
+                left: 50px;
+            }
+            & :nth-child(1)::after {
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 15px;
+                background-color: #f44336;
+                top: 0px;
+                left: 60px;
+                border-radius: 10px 0px 10px 0px;
+                transform: rotate(100deg);
+            }
+            & :nth-child(3)::before{
+                top: 50px;
+                animation-delay: .15s;
+            }
+            & :nth-child(3)::after{
+                top: -50px;
+                animation-delay: .06s;
+            }
+            & :nth-child(2)::before{
+                top: -100px;
+            }
+            & :nth-child(2)::after {
+                top: -80px;
+                animation-delay: .1s;
+            }
+            & :nth-child(3)::before,
+            & :nth-child(3)::after,
+            & :nth-child(2)::before,
+            & :nth-child(2)::after {
+                content: "";
+                position: absolute;
+                width: 55px;
+                height: 1px;
+                background-color: #f44336;
+                left: 85px;
+                animation-name: wind;
+                animation-duration: 0.2s;
+                animation-iteration-count: infinite;
+                opacity: 0;
+            }
+        }
+    }
+}
+@keyframes wind {
+    30% {
+        opacity: 1;
+        left: -130px;
+    }
+    80% {
+        opacity: 0;
+        left: 85px;
+    }
+    
+}
+@keyframes flying {
+    50% {
+        transform: translate(3px, 3px)
+    }
+    100% {
+        transform: translate(0px, 0px) 
+    }
 }
 @keyframes tall-short-ball {
     5% {
